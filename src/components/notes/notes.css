@@ -1,0 +1,16 @@
+.zebra {
+    background: url('../../assets/trippytheme.jpeg'); 
+    border-radius: 20px;
+    border: 2px solid purple;
+    padding: 4px;
+}
+
+.button {
+    position: relative;
+    left: 36%;
+    border-radius: 20px;
+}
+
+.space {
+    padding: 2px;
+}
