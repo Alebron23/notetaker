@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import InputAndDisplayNotes from './components/InputAndDisplayNotes.js';
+import Notetaker from './components/Notetaker.js';
 
 class App extends Component {
   render() {
     return (
       <div> 
-        <InputAndDisplayNotes />
+        <Notetaker />
       </div>
     )
   }

@@ -14,7 +14,7 @@ const cookies    = new Cookies();
 // Two arrays are used to accomplish this. One to store they notes that have only been saved and
 // one to display the notes so the user can make changes to is without them being saved once those
 // changes are made. 
-class InputAndDisplayNotes extends Component {
+class Notetaker extends Component {
 
     constructor(props){
         super(props);
@@ -190,7 +190,7 @@ class InputAndDisplayNotes extends Component {
     render(){
         return(
             <div className="container"> 
-                <h1> NoteToSelf </h1>
+                <h1>Note To Self</h1>
 
                 {/* Displays the input and button to input notes */}
                 <Input handleFormSubmit = {this.handleFormSubmit}
@@ -217,4 +217,4 @@ class InputAndDisplayNotes extends Component {
     }
 }
 
-export default InputAndDisplayNotes;
+export default Notetaker;
