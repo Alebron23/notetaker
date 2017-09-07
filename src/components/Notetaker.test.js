@@ -15,7 +15,7 @@ describe('Notetaker', () => {
     it('renders the App title', () => {
         // Before you do anything, run a conosle.log(debug)
         // to see if you mounted it correctly
-        console.log(notetaker.debug());
+        //console.log(notetaker.debug());
         let title='Note To Self';
         expect(notetaker.find('h1').text()).toEqual(title);
     });

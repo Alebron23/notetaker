@@ -3,10 +3,9 @@ import { Alert } from 'react-bootstrap';
 
 const SuccessAlert = (props) => {
     return(
-        <Alert bsStyle="success" onDismiss={this.handleAlertDismiss}>
-        <h4>Your note was saved</h4>
-        
-      </Alert>
+        <Alert bsStyle="success">
+            <h4>Your note was saved</h4>
+        </Alert>
     )
 }
 

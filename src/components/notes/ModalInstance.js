@@ -4,7 +4,7 @@ import { Modal, Button } from 'react-bootstrap';
 const ModalInstance = (props) => {
     return(
       <div className="static-modal">
-        <Modal show={props.show}> 
+        <Modal className="modal" show={props.show}> 
           <Modal.Header>
             <Modal.Title>{props.title}</Modal.Title>
           </Modal.Header>
@@ -12,6 +12,7 @@ const ModalInstance = (props) => {
           {/* <Modal.Body>
             One fine body...
           </Modal.Body> */}
+          <p></p>
     
           <Modal.Footer>
             <Button onClick={props.hide}>No</Button>
