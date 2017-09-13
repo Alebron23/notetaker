@@ -29,7 +29,7 @@ class Input extends Component {
     render(){
         // A little purple styling for the button. 
         const buttonStyle = {
-            color: 'white',
+            color          : 'white',
             backgroundColor: 'purple'
         }
 
