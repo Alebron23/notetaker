@@ -6,10 +6,14 @@ import { mount } from 'enzyme';
 // Have to import it so you can actually mount the component. 
 import Notes from './Notes';
 
+const mockHandleChange    = jest.fn();
+const mockOpenDeleteModal = jest.fn();
+const mockSaveChange      = jest.fn();
+
 // Can use the spread operator here and pass in the props like {...props}.
 // Spread operator spreads the attributes of the object out to our component. 
 // But in es6 it does more.
-const props = { displayedNotes: ['test element']};
+const props = { displayedNotes: ['test element'], handleChange: mockHandleChange, openDeleteModal: mockOpenDeleteModal, saveChange: mockSaveChange, showAlert: true};
 
 // We are going to wrap our stuff in a special helper function
 // from jest called describe. You have access to it globally.
@@ -19,12 +23,12 @@ const props = { displayedNotes: ['test element']};
 // happen when a user clicks on a button, or types characters into input.   
 describe('Note', () => {
                                        
-    let notes = mount(<Notes displayedNotes={props.displayedNotes}/>);
+    let notes = mount(<Notes {...props}/>);
 
     // it takes a string as it's first parameter that describes what
     // we are going to test. Enzyme has a debug function that converts 
     // the rendered component to text to see what it looks like. 
-    it('renders the notes from array', () => {
+    it('renders Notes title', () => {
         //console.log(displayedNotes.debug());
 
         // expect(jest method) check for certain parts of the note match 
@@ -44,6 +48,11 @@ describe('Note', () => {
             expect(notes.find('FormControl').exists()).toBe(true);
         });
 
+        //console.log(notes.find('FormControl').props())
+        it('renders displayedNotes element as note in the FormControl', () => {
+            expect(notes.find('FormControl').props().value).toBe('test element');
+        });
+
         it('renders delete ModalInstance component', () => {
             expect(notes.find('ModalInstance').at(0).exists()).toBe(true);
         });
@@ -52,6 +61,38 @@ describe('Note', () => {
             expect(notes.find('ModalInstance').at(0).exists()).toBe(true);
         });
     });
+
+    describe('when changing the note', () => {
+        beforeEach(() => {
+            notes.find('FormControl').simulate('change');
+        });
+
+        it('calls the handleChange callback', () => {
+            expect(props.handleChange).toHaveBeenCalled();
+        })
+    });
+
+    describe('when deleting note note', () => {
+        beforeEach(() => {
+            notes.find('Button').simulate('click');
+        });
+
+        it('calls the openDeleteModal callback', () => {
+            expect(props.openDeleteModal).toHaveBeenCalled();
+        });
+    });
+
+    //TEST THAT I CANNOT GET TO WORK
+    // describe('when saving changed note', () => {
+    //     beforeEach(() => {
+    //         notes.find('FormControl').simulate('keyDown', {event: {charCode: 13}})
+    //     });
+
+    //     it('calls the saveChange callback', () => {
+    //         expect(props.saveChange).toHaveBeenCalled();
+    //     });
+    // });
+
 });
 
 

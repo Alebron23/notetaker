@@ -29,5 +29,19 @@ describe('Notetaker', () => {
             expect(notetaker.find('Notes').exists()).toBe(true);
         })
     });
+
+    describe('re-shallow-rendering the component', () => {
+        let notetaker2;
+        const state = {displayedNotes: []}
+
+        beforeEach(() => {
+            notetaker2 = mount(<Notetaker {...state}/>);
+            
+        });
+
+        it('reads the stored note cookies', () => {
+            //console.log(notetaker2.state());
+        });
+    });
 });
 

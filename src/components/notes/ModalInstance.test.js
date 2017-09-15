@@ -17,8 +17,8 @@ describe('Delete Modal', () => {
         });
 
         it('renders the modal title', () => {
-           // var noButton = document.body.getElementsByClassName("modal")[0].getElementsByClassName("btn btn-default")[0];
-           //console.log(modal.find('ModalTitle').props());
+           // took me a while to figure out to call ModalTitle becuase of the Modal.Title
+           // and then also to figure out the props().children thing too. 
             expect(modal.find('ModalTitle').props().children).toEqual('delete_title');
            //expect(notes.find('h3').text()).toEqual('Notes');
         });
