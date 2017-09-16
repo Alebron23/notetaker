@@ -10,8 +10,8 @@ class Notes extends Component {
         return this.props.displayedNotes.map((notes, index) => 
             <div className="space" key={index}>
                 <div className="zebra" key={index}> 
-                    <Form inline onSubmit={this.props.handleFormSubmit}>
-                        <FormControl type="text" name={index} onChange={this.props.handleChange} onKeyPress={this.saveChange.bind(this)} value={notes} /> 
+                    <Form inline onSubmit={this.props.openSaveModal} name={index}>
+                        <FormControl type="text" name={index} onChange={this.props.handleChange} value={notes} /> 
                         <Button className="button" name={index} onClick={this.props.openDeleteModal}>X</Button>
                     </Form>
                 </div>
@@ -19,16 +19,11 @@ class Notes extends Component {
         )  
     } 
 
-    saveChange(event) {
-        if(event.charCode === 13){
-            this.props.openSaveModal(event.target.name);
-        }
-    }
-
     displayAlert(){
         if(this.props.showAlert === true){
             var props = this.props;
             
+            //Have a timeout so the alert goes away after 3 seconds
             setTimeout(function(){props.hideAlert()}, 3000, props);
             return(<SuccessAlert />)
         }

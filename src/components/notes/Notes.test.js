@@ -8,12 +8,19 @@ import Notes from './Notes';
 
 const mockHandleChange    = jest.fn();
 const mockOpenDeleteModal = jest.fn();
+const mockOpenSaveModal   = jest.fn();
 const mockSaveChange      = jest.fn();
 
 // Can use the spread operator here and pass in the props like {...props}.
 // Spread operator spreads the attributes of the object out to our component. 
 // But in es6 it does more.
-const props = { displayedNotes: ['test element'], handleChange: mockHandleChange, openDeleteModal: mockOpenDeleteModal, saveChange: mockSaveChange, showAlert: true};
+const props = { openDeleteModal : mockOpenDeleteModal, 
+                openSaveModal   : mockOpenSaveModal,
+                displayedNotes  : ['test element'], 
+                handleChange    : mockHandleChange,  
+                saveChange      : mockSaveChange, 
+                showAlert       : true 
+              };
 
 // We are going to wrap our stuff in a special helper function
 // from jest called describe. You have access to it globally.
@@ -83,16 +90,15 @@ describe('Note', () => {
     });
 
     //TEST THAT I CANNOT GET TO WORK
-    // describe('when saving changed note', () => {
-    //     beforeEach(() => {
-    //         notes.find('FormControl').simulate('keyDown', {event: {charCode: 13}})
-    //     });
+    describe('when saving changed note', () => {
+        beforeEach(() => {
+            notes.find('Form').simulate('submit');
+        });
 
-    //     it('calls the saveChange callback', () => {
-    //         expect(props.saveChange).toHaveBeenCalled();
-    //     });
-    // });
-
+        it('calls the saveChange callback', () => {
+            expect(props.openSaveModal).toHaveBeenCalled();
+        });
+    });
 });
 
 

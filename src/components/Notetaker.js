@@ -19,15 +19,13 @@ class Notetaker extends Component {
     constructor(props){
         super(props);
 
-        this.state = {
-            showDeleteModal : false,
-            showSaveModal   : false,
-            showAlert    : false,
-            displayedNotes  : [],
-            notes           : [],
-            index           : 0,
-            text            : '',
-        }
+        this.state = {  showDeleteModal : false,
+                        showSaveModal   : false,
+                        showAlert       : false,
+                        displayedNotes  : [],
+                        notes           : [],
+                        index           : 0,
+                        text            : '' };
 
         // Methods for the two modals 
         this.openDeleteModal  = this.openDeleteModal.bind(this);
@@ -47,9 +45,6 @@ class Notetaker extends Component {
         // Methods to show and hide the alert message after changes were saved. 
         this.showAlert = this.showAlert.bind(this);
         this.hideAlert = this.hideAlert.bind(this);
-
-        // Use in both components to stop the form from submitting 
-        this.handleFormSubmit  = this.handleFormSubmit.bind(this);
     }
 
     //Fires when our component loads onto the dom. Grabs the notes from the cookies. 
@@ -77,17 +72,19 @@ class Notetaker extends Component {
 
     // Saves the text value of text that is in state to the notes after the submit button is clicked or 
     // the enter button is pressed. 
-    handleSave = () => {
+    handleSave = (event) => {
+        event.preventDefault();
 
         // This is destructuring of objects. It automatically grabs those variables of 
         // the same name from the state object and sets them equal to our local variable of the same name.
         var {text, notes, displayedNotes } = this.state;
         notes.push(text);
         displayedNotes.push(text);
+        text = '';
         
         // Also if key and value are the same name in an object you can just put the one.  
         // So in this case they are both notes so you can just have the one name. 
-        this.setState({ notes, displayedNotes });
+        this.setState({ notes, displayedNotes, text });
         
         //Push the notes to the cookie.
         cookies.set(cookie_key, this.state.notes);
@@ -144,11 +141,6 @@ class Notetaker extends Component {
         cookies.set(cookie_key, this.state.notes);
     }
 
-    // doesn't allow the form to be submitted when the enter key is pressed.
-    handleFormSubmit(event) {
-        event.preventDefault();
-    }
-
     // Have to save the index of the note where the delete button was pressed because you 
     // can't pass it along and also when so when the callback function is called from the 
     // modal it knows which one to delete.
@@ -166,9 +158,11 @@ class Notetaker extends Component {
     // after it checks if the enter key was pressed. The index has to be saved so 
     // when the handleSaveChange callback is called from the modal, that funciton can
     // grab the index from the state and save the change to that position in the array. 
-    openSaveModal(index){
-        console.log(index);
-        this.setState({ showSaveModal: true, index: index});
+    openSaveModal(event){
+        console.log(event.target.name);
+        
+        event.preventDefault();
+        this.setState({ showSaveModal: true, index: event.target.name});
     }
 
     // Sets the value to false when the no button is click from the modal. 
@@ -210,7 +204,7 @@ class Notetaker extends Component {
                          openDeleteModal  = {this.openDeleteModal}
                          closeDeleteModal = {this.closeDeleteModal}
                          hideAlert        = {this.hideAlert}
-                                            {...this.state}/>
+                                            {...this.state} />
                 
             </div>
         )

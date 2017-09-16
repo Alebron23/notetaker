@@ -54,12 +54,24 @@ describe('Input', () => {
 
         
             //LAST TEST THAT I CANNOT GET TO WORK
-            // beforeEach(() => {
-            //     input.find('Button').simulate('click', { t: 'a'});
-            // });
+            beforeEach(() => {
+                input.find('Button').simulate('click', {t: ''});
+            });
 
-            // it('adds the note to state', () => {
-            //     expect(props.update).toHaveBeenCalled();
-            // });
+            it('adds the note to state', () => {
+                expect(props.handleSave).toHaveBeenCalled();
+            });
+
+            describe('when enter key is pressed and form is submitted', () => {
+                beforeEach(() => {
+                    input.find('Form').simulate('submit');
+                });
+
+                it('calls the handleSave callback', () => {
+                    expect(props.handleSave).toHaveBeenCalled();
+                });
+            });
+
+             
     });
 });
