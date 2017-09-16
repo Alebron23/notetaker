@@ -6,10 +6,12 @@ import './notes.css';
 
 class Notes extends Component {
 
+    // Handles mapping throught the displayedNotes array to display the notes. Displays each note as 
+    // Form.
     displayNotes() {
         return this.props.displayedNotes.map((notes, index) => 
             <div className="space" key={index}>
-                <div className="zebra" key={index}> 
+                <div className="note" key={index}> 
                     <Form inline onSubmit={this.props.openSaveModal} name={index}>
                         <FormControl type="text" name={index} onChange={this.props.handleChange} value={notes} /> 
                         <Button className="button" name={index} onClick={this.props.openDeleteModal}>X</Button>
@@ -19,6 +21,7 @@ class Notes extends Component {
         )  
     } 
 
+    // Handles displaying the alert after the note was saved. Used a callback so it goes away after 3 seconds 
     displayAlert(){
         if(this.props.showAlert === true){
             var props = this.props;
@@ -33,9 +36,11 @@ class Notes extends Component {
         return(
             <div className="container"> 
                 <h3>Notes</h3>
-                {
+                {/* Displays the success Alert if the note was saved and the show value chanaged to true */}
+                {   
                     this.displayAlert()
                 }
+                {/* this function runs throught the displayedNotes array that was passed to the component */}
                 {   
                    this.displayNotes()
                 } 
