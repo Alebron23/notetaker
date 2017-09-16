@@ -19,8 +19,7 @@ const props = { openDeleteModal : mockOpenDeleteModal,
                 displayedNotes  : ['test element'], 
                 handleChange    : mockHandleChange,  
                 saveChange      : mockSaveChange, 
-                showAlert       : true 
-              };
+                showAlert       : true };
 
 // We are going to wrap our stuff in a special helper function
 // from jest called describe. You have access to it globally.
@@ -67,6 +66,12 @@ describe('Note', () => {
         it('renders save ModalInstance component', () => {
             expect(notes.find('ModalInstance').at(0).exists()).toBe(true);
         });
+
+        it('renders the success alert', () => {
+            expect(notes.find('SuccessAlert').exists()).toBe(true);
+        });
+
+        console.log(notes.methods);
     });
 
     describe('when changing the note', () => {
@@ -89,13 +94,12 @@ describe('Note', () => {
         });
     });
 
-    //TEST THAT I CANNOT GET TO WORK
     describe('when saving changed note', () => {
         beforeEach(() => {
             notes.find('Form').simulate('submit');
         });
 
-        it('calls the saveChange callback', () => {
+        it('calls the openSaveModal callback', () => {
             expect(props.openSaveModal).toHaveBeenCalled();
         });
     });
