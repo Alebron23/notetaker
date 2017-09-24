@@ -1,15 +1,13 @@
 import React from 'react';
 import { shallow, render, mount } from 'enzyme';
-import Input from './Input';
-import Notetaker from '../Notetaker';
+import Input from './Input.js';
 
 describe('Input', () => {
     const mockHandleText = jest.fn();
     const mockHandleSave = jest.fn();
     const mockUpdate     = jest.fn();
     const props          = {handleText: mockHandleText, handleSave: mockHandleSave, update: mockUpdate};
-    let input            = mount(<Input {...props} />);
-    //let takeNotes        = shallow(<Notetaker />);
+    let   input          = mount(<Input {...props} />);
 
     describe('When rendering the form', () => {
 

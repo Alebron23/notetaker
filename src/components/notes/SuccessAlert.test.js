@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import SuccessAlert from './SuccessAlert';
+import SuccessAlert from './SuccessAlert.js';
 
 describe('SuccessAlert', () => {
 

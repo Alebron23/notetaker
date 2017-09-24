@@ -52,12 +52,12 @@ class Notetaker extends Component {
 
         //if there is nothing in the browser cookies then don't initialize the arrays
         if(cookies.get(cookie_key) !== undefined){
-            var notes     = cookies.get(cookie_key);
+            var notes          = cookies.get(cookie_key);
             var displayedNotes = cookies.get(cookie_key);
         }
-
+        //cookies.get(cookie_key)
         console.log(notes, displayedNotes);
-        
+
         this.setState({notes, displayedNotes});
     }
 

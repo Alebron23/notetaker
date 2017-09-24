@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import ModalInstance from './ModalInstance';
+import ModalInstance from './ModalInstance.js';
 
 const mockUpdate = jest.fn();
 const mockHide   = jest.fn();
@@ -31,7 +31,7 @@ describe('Delete Modal', () => {
             expect(modal.find('Button').at(1).props().children).toEqual('Yes');
         });
 
-        console.log(modal.props().children.props.show)
+        //console.log(modal.props().children.props.show)
 
         it('has show value passed into component', () => {
             expect(modal.props().children.props.show).toEqual(false);
