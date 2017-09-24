@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`notaker practice 1`] = `
+<div
+  className="container"
+>
+  <h1>
+    Note To Self
+  </h1>
+  <form
+    className=""
+    onSubmit={[Function]}
+  >
+    <input
+      className="form-control"
+      id={undefined}
+      name={Array []}
+      onChange={[Function]}
+      placeholder="Enter Note"
+      type="text"
+      value=""
+    />
+    <div
+      style={
+        Object {
+          "height": "5px",
+          "width": "5px",
+        }
+      }
+    >
+       
+    </div>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "purple",
+          "color": "white",
+        }
+      }
+      type="button"
+    >
+      Submit 
+    </button>
+  </form>
+  <hr />
+  <div
+    className="container"
+  >
+    <h3>
+      Notes
+    </h3>
+    <div
+      className="static-modal"
+    />
+    <div
+      className="static-modal"
+    />
+  </div>
+</div>
+`;
