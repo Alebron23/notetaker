@@ -52,15 +52,13 @@ class Notetaker extends Component {
     //Fires when our component loads onto the dom. Grabs the notes from the cookies. 
     componentDidMount() {
         //if there is nothing in the browser cookies then don't initialize the arrays
-        console.log('COOKIE', cookies.getAll())
         if(cookies.get(cookie_key) !== undefined){
-            var notes          = cookies.get(cookie_key);
-            var displayedNotes = cookies.get(cookie_key);
-        }
-        //cookies.get(cookie_key)
-        console.log(notes, displayedNotes);
+            const notes          = cookies.get(cookie_key);
+            const displayedNotes = cookies.get(cookie_key);
 
-        //this.setState({notes, displayedNotes});
+            console.log(notes, displayedNotes);
+            this.setState({ notes, displayedNotes });
+        }     
     }
 
     // Adds the text typed in the Input Component to the state. 

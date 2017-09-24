@@ -14,7 +14,13 @@ exports[`notaker practice 1`] = `
     <input
       className="form-control"
       id={undefined}
-      name={Array []}
+      name={
+        Array [
+          "foo",
+          "bar",
+          "baz",
+        ]
+      }
       onChange={[Function]}
       placeholder="Enter Note"
       type="text"
@@ -52,6 +58,99 @@ exports[`notaker practice 1`] = `
     <h3>
       Notes
     </h3>
+    <div
+      className="space"
+    >
+      <div
+        className="note"
+      >
+        <form
+          className="form-inline"
+          name={0}
+          onSubmit={[Function]}
+        >
+          <input
+            className="form-control"
+            id={undefined}
+            name={0}
+            onChange={[Function]}
+            type="text"
+            value="foo"
+          />
+          <button
+            className="button btn btn-default"
+            disabled={false}
+            name={0}
+            onClick={[Function]}
+            type="button"
+          >
+            X
+          </button>
+        </form>
+      </div>
+    </div>
+    <div
+      className="space"
+    >
+      <div
+        className="note"
+      >
+        <form
+          className="form-inline"
+          name={1}
+          onSubmit={[Function]}
+        >
+          <input
+            className="form-control"
+            id={undefined}
+            name={1}
+            onChange={[Function]}
+            type="text"
+            value="bar"
+          />
+          <button
+            className="button btn btn-default"
+            disabled={false}
+            name={1}
+            onClick={[Function]}
+            type="button"
+          >
+            X
+          </button>
+        </form>
+      </div>
+    </div>
+    <div
+      className="space"
+    >
+      <div
+        className="note"
+      >
+        <form
+          className="form-inline"
+          name={2}
+          onSubmit={[Function]}
+        >
+          <input
+            className="form-control"
+            id={undefined}
+            name={2}
+            onChange={[Function]}
+            type="text"
+            value="baz"
+          />
+          <button
+            className="button btn btn-default"
+            disabled={false}
+            name={2}
+            onClick={[Function]}
+            type="button"
+          >
+            X
+          </button>
+        </form>
+      </div>
+    </div>
     <div
       className="static-modal"
     />

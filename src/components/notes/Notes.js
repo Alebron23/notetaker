@@ -33,7 +33,6 @@ class Notes extends Component {
     }
 
     render(){
-        console.log('INCOMING PROPS', this.props)
         return(
             <div className="container"> 
                 <h3>Notes</h3>

@@ -42,7 +42,9 @@ it('notaker practice', () => {
 */
 
     // jest.mock('universal-cookie', () => {
-    //     return {get: jest.fn(() => mockPromise)};
+    //     return { 
+    //    get: jest.fn(() => mockPromise)
+    //};
     // });
     // var cookieSpy = sinon.spy(Cookies, 'get');
     // jest.mock('universal-cookie');
