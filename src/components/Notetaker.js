@@ -19,13 +19,15 @@ class Notetaker extends Component {
     constructor(props){
         super(props);
 
-        this.state = {  showDeleteModal : false,
-                        showSaveModal   : false,
-                        showAlert       : false,
-                        displayedNotes  : [],
-                        notes           : [],
-                        index           : 0,
-                        text            : '' };
+        this.state = {
+            showDeleteModal: false,
+            showSaveModal: false,
+            showAlert: false,
+            displayedNotes: [],
+            notes: [],
+            index: 0,
+            text: ''
+        };
 
         // Methods for the two modals 
         this.openDeleteModal  = this.openDeleteModal.bind(this);
@@ -49,8 +51,8 @@ class Notetaker extends Component {
 
     //Fires when our component loads onto the dom. Grabs the notes from the cookies. 
     componentDidMount() {
-
         //if there is nothing in the browser cookies then don't initialize the arrays
+        console.log('COOKIE', cookies.getAll())
         if(cookies.get(cookie_key) !== undefined){
             var notes          = cookies.get(cookie_key);
             var displayedNotes = cookies.get(cookie_key);
@@ -58,7 +60,7 @@ class Notetaker extends Component {
         //cookies.get(cookie_key)
         console.log(notes, displayedNotes);
 
-        this.setState({notes, displayedNotes});
+        //this.setState({notes, displayedNotes});
     }
 
     // Adds the text typed in the Input Component to the state. 
@@ -116,8 +118,6 @@ class Notetaker extends Component {
     // screen after it is inputed and saved by the user. Only updates this array so if 
     // they don't save the changes the original note is saved instead of this one.  
     handleChange(event) {
-        console.log(event.target.value);
-
         var { displayedNotes } = this.state;
         displayedNotes[event.target.name] = event.target.value;
 
@@ -204,7 +204,9 @@ class Notetaker extends Component {
                          openDeleteModal  = {this.openDeleteModal}
                          closeDeleteModal = {this.closeDeleteModal}
                          hideAlert        = {this.hideAlert}
-                                            {...this.state} />
+                                            {...this.state} 
+                                                              
+                    />
                 
             </div>
         )

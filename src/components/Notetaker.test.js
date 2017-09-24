@@ -4,6 +4,42 @@ import { stub } from 'sinon';
 import Notetaker from './Notetaker.js';
 import Cookies from 'universal-cookie';
 import sinon from 'sinon';
+import renderer from 'react-test-renderer'
+
+it('notaker practice', () => {
+    const displayedNotes = [ 'foo', 'bar', 'baz']
+    const component = renderer.create(<Notetaker displayedNotes={displayedNotes} />); 
+
+    expect(component.toJSON()).toMatchSnapshot();
+})
+
+
+
+/*
+it('notaker practice', () => {
+    const displayedNotes = [ 'foo', 'bar', 'baz']
+    const component = renderer.create(<Notetaker displayedNotes={displayedNotes} />); 
+    
+    expect(component.toJSON()).toMatchSnapshot();
+
+    const e = { target: { value: 'foo' } }
+    component.getInstance().handleText(e) // in this function it calls this.setState()
+
+    expect(component.toJSON()).toMatchSnapshot();
+})
+
+
+it('notaker practice', () => {
+    const displayedNotes = [ 'foo', 'bar', 'baz']
+    const component = renderer.create(<Notetaker displayedNotes={displayedNotes} />); 
+    
+    const tree = component.toJSON()
+    tree.props.children[0].props.onClick()
+
+    expect(component.toJSON()).toMatchSnapshot();
+})
+
+*/
 
     // jest.mock('universal-cookie', () => {
     //     return {get: jest.fn(() => mockPromise)};
@@ -28,6 +64,11 @@ import sinon from 'sinon';
 
 // Begin test with describe block that describes our
 // overall test. 
+
+
+
+
+/** 
 describe('Notetaker', () => {
     
     // Now setup data for our test. 
@@ -67,4 +108,4 @@ describe('Notetaker', () => {
         });
     });
 });
-
+**/

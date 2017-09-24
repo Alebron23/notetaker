@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, FormControl, Button } from 'react-bootstrap';
 import ModalInstance from './ModalInstance';
 import SuccessAlert from './SuccessAlert';
-import './notes.css';
+//import './notes.css';
 
 class Notes extends Component {
 
@@ -33,6 +33,7 @@ class Notes extends Component {
     }
 
     render(){
+        console.log('INCOMING PROPS', this.props)
         return(
             <div className="container"> 
                 <h3>Notes</h3>

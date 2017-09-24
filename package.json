@@ -13,6 +13,7 @@
     "universal-cookie": "^2.0.8"
   },
   "devDependencies": {
+    "babel-preset-stage-0": "^6.24.1",
     "enzyme": "^2.9.1",
     "jest": "^21.1.0",
     "nyc": "^11.2.1",
@@ -27,4 +28,3 @@
     "eject": "react-scripts eject"
   }
 }
-
