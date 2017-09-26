@@ -28,25 +28,6 @@ class Notetaker extends Component {
             index: 0,
             text: ''
         };
-
-        // Methods for the two modals 
-        this.openDeleteModal  = this.openDeleteModal.bind(this);
-        this.closeDeleteModal = this.closeDeleteModal.bind(this);
-        this.openSaveModal    = this.openSaveModal.bind(this);
-        this.closeSaveModal   = this.closeSaveModal.bind(this);
-        
-        // Methods for the Notes Component 
-        this.handleDelete     = this.handleDelete.bind(this);
-        this.handleChange     = this.handleChange.bind(this);
-        this.handleSaveChange = this.handleSaveChange.bind(this);
-
-        // Methods for the Input Component 
-        this.handleSave        = this.handleSave.bind(this);
-        this.handleText        = this.handleText.bind(this);
-
-        // Methods to show and hide the alert message after changes were saved. 
-        this.showAlert = this.showAlert.bind(this);
-        this.hideAlert = this.hideAlert.bind(this);
     }
 
     //Fires when our component loads onto the dom. Grabs the notes from the cookies. 
@@ -56,15 +37,13 @@ class Notetaker extends Component {
             const notes          = cookies.get(cookie_key);
             const displayedNotes = cookies.get(cookie_key);
 
-            console.log(notes, displayedNotes);
             this.setState({ notes, displayedNotes });
         }     
     }
 
     // Adds the text typed in the Input Component to the state. 
     handleText = (event) => {
-        console.log(this.state.text);
-
+    
         this.setState({
             text: event.target.value
         })
@@ -88,7 +67,6 @@ class Notetaker extends Component {
         
         //Push the notes to the cookie.
         cookies.set(cookie_key, this.state.notes);
-        console.log(this.state.notes, this.state.displayedNotes)
     }
 
     //Deletes an element from the notes after it is displayed on the screen. 
@@ -115,7 +93,7 @@ class Notetaker extends Component {
     // Updates the displayedNotes array after text is changed once it is displayed on the 
     // screen after it is inputed and saved by the user. Only updates this array so if 
     // they don't save the changes the original note is saved instead of this one.  
-    handleChange(event) {
+    handleChange = (event) => {
         var { displayedNotes } = this.state;
         displayedNotes[event.target.name] = event.target.value;
 
@@ -126,7 +104,7 @@ class Notetaker extends Component {
     // is clicked from the modal. This is passed as callback to the modal inside the 
     // Notes Component and is called after the yes button is clicked. Also sets the
     // Notes array to the cookies after the state is set. 
-    handleSaveChange(){
+    handleSaveChange = () => {
         console.log(this.state.index);
 
         var {notes} = this.state;
@@ -142,13 +120,13 @@ class Notetaker extends Component {
     // Have to save the index of the note where the delete button was pressed because you 
     // can't pass it along and also when so when the callback function is called from the 
     // modal it knows which one to delete.
-    openDeleteModal(event){
+    openDeleteModal = (event) => {
         this.setState({ showDeleteModal: true, index: event.target.name});
     }
 
     // Sets the value to false when the no button is click from the modal. 
     // This is passed as callback to the modal in the notes component as hide={}.
-    closeDeleteModal(){
+    closeDeleteModal = () => {
         this.setState({ showDeleteModal: false});
     }
 
@@ -156,7 +134,7 @@ class Notetaker extends Component {
     // after it checks if the enter key was pressed. The index has to be saved so 
     // when the handleSaveChange callback is called from the modal, that funciton can
     // grab the index from the state and save the change to that position in the array. 
-    openSaveModal(event){
+    openSaveModal = (event) => {
         console.log(event.target.name);
         
         event.preventDefault();
@@ -165,15 +143,15 @@ class Notetaker extends Component {
 
     // Sets the value to false when the no button is click from the modal. 
     // This is passed as callback to the modal in the Notes component as hide={}.
-    closeSaveModal(){
+    closeSaveModal = () => {
         this.setState({ showSaveModal: false});
     }
 
-    showAlert(){
+    showAlert = () => {
         this.setState({ showAlert: true });
     }
 
-    hideAlert(){
+    hideAlert = () => {
         this.setState({showAlert: false});
     }
 

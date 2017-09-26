@@ -4,7 +4,7 @@ import React from 'react';
 // of this component onto the actual dom or application
 import { mount } from 'enzyme'; 
 // Have to import it so you can actually mount the component. 
-import Notes from './Notes.js';
+import Notes from '../src/components/notes/Notes.js';
 
 const mockHandleChange    = jest.fn();
 const mockOpenDeleteModal = jest.fn();

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, render, mount } from 'enzyme';
-import Input from './Input.js';
+import Input from '../src/components/input/Input.js';
 
 describe('Input', () => {
     const mockHandleText = jest.fn();

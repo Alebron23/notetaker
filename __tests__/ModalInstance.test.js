@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import ModalInstance from './ModalInstance.js';
+import ModalInstance from '../src/components/notes/ModalInstance.js';
 
 const mockUpdate = jest.fn();
 const mockHide   = jest.fn();
